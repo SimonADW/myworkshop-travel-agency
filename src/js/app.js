@@ -80,3 +80,99 @@ const destinations = [
         imageUrl: "./assets/images/destinations/dan-freeman-sydney.jpg"
     }
 ];
+
+// GET DOM ELEMENTS
+const shoppingCartBadge = document.querySelector(".cart-badge");
+const sortButtons = document.querySelectorAll(".sort-button");
+const destinationsCardsContainer = document.querySelector(".destinations__cards-container");
+
+// GLOBAL VARIABLES
+let shoppingCart = [];
+let sortedDestinations = destinations;
+
+// RENDER DESTINATIONS
+const renderDestinations = () => {
+    destinationsCardsContainer.textContent = "";
+
+    sortedDestinations.forEach((destination) => {
+        const card = document.createElement("article");
+        card.classList.add("destinations__card");
+
+        const img = document.createElement("img");
+        img.src = destination.imageUrl;
+
+        const cardContent = document.createElement("div");
+        cardContent.classList.add("card__content");
+
+        const title = document.createElement("h3");
+        title.textContent = destination.title;
+
+        const description = document.createElement("p");
+        description.textContent = destination.description;
+
+        const duration = document.createElement("p");
+        duration.textContent = `Varighet: ${destination.duration} uker`;
+
+        const price = document.createElement("p");
+        price.textContent = `Pris: ${destination.price} kr`;
+
+        const addToCartButton = document.createElement("button");
+        addToCartButton.classList.add("add-to-cart-button");
+        addToCartButton.textContent = "Legg til i handlekurv";
+
+        // SETTING EVENT LISTENER FOR ADD TO CART BUTTON
+        addToCartButton.addEventListener("click", () => {
+            shoppingCart.push(destination);
+            shoppingCartBadge.textContent = shoppingCart.length;
+        });
+
+        const dealOfferBadge = document.createElement("div");
+        dealOfferBadge.classList.add("deal-offer-badge");
+        dealOfferBadge.textContent = "Tilbud";
+
+        if (!destination.dealOffer) {
+            dealOfferBadge.classList.add("hidden");
+        }
+
+        // APPENDING ELEMENTS
+        cardContent.append(title, description, duration, price);
+        card.appendChild(img);
+        card.appendChild(cardContent);
+        card.appendChild(addToCartButton);
+        card.appendChild(dealOfferBadge);
+        destinationsCardsContainer.appendChild(card);
+    });
+};
+
+// EVENT LISTENERS
+// SWITCH TO SORT DESTINATIONS
+sortButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        // REMOVE ACTIVE CLASS FROM ALL BUTTONS
+        sortButtons.forEach((button) => {
+            button.classList.remove("active");
+        });
+
+        // SORT DESTINATIONS AND ADD ACTIVE CLASS TO BUTTON
+        const sortType = event.target.dataset.sort;
+        if (sortType === "price-high") {
+            sortedDestinations = destinations.sort((a, b) => b.price - a.price);
+            button.classList.add("active");
+        } else if (sortType === "price-low") {
+            sortedDestinations = destinations.sort((a, b) => a.price - b.price);
+            button.classList.add("active");
+        } else if (sortType === "duration") {
+            sortedDestinations = destinations.sort((a, b) => a.duration - b.duration);
+            button.classList.add("active");
+        } else if (sortType === "deal-offer") {
+            sortedDestinations = destinations.filter((destination) => destination.dealOffer);
+            button.classList.add("active");
+        }
+        renderDestinations(sortedDestinations);
+    });
+});
+
+// INITIAL RENDER
+window.addEventListener("DOMContentLoaded", () => {
+    renderDestinations(sortedDestinations);
+});

@@ -29,16 +29,32 @@ header button {
 	border: none;
 	border-radius: 5px;
 	margin-left: auto;
+	position: relative;
 }
+
+.cart-badge {
+	font-size: 8px;
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	top: -5px;
+	right: -5px;
+	background-color: var(--color-tertiary);
+	color: var(--color-background);
+	border-radius: 50%;
+	padding: 5px;
+}	
 
 
 /* MAIN */
 main {
-	padding: var(--spacing-medium);
+	max-width: 1200px;
+	margin: 0 auto;
 	flex: 1;
 	display: flex;
 	flex-direction: column;
 	gap: var(--spacing-xlarge);
+	padding: var(--spacing-medium);
 }
 
 h1 {
@@ -46,7 +62,7 @@ h1 {
 }
 
 h1, h2 {
-	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-family: "Georgia", sans-serif;
 	font-weight: 400;
 	letter-spacing: 1.5px;
 }
@@ -74,7 +90,7 @@ h1, h2 {
 	object-position: center;
 }
 
-/* DISCOVER SECTION */
+/* DISCOVER SECTION ------------------------ */ 
 .destinations {
 	display: flex;
 	flex-direction: column;
@@ -82,9 +98,12 @@ h1, h2 {
 }
 
 .destinations h2 {
+	text-align: center;
 	margin-bottom: var(--spacing-xlarge);
 	font-size: 2rem;
 }
+
+/* SORTING */
 
 .sort-buttons {
 	display: flex;
@@ -106,6 +125,8 @@ h1, h2 {
 	color: var(--color-primary);
 }
 
+/* DESTINATION CARDS */
+
 .destinations__cards-container {
 	display: flex;
 	flex-direction: column;
@@ -119,6 +140,7 @@ h1, h2 {
 	padding: var(--spacing-medium);
 	border-radius: 5px;
 	background-color: var(--color-secondary);
+	position: relative;
 }
 
 .destinations__card img {
@@ -138,17 +160,75 @@ h1, h2 {
 .add-to-cart-button {
 	background: transparent;
 	height: fit-content;
+	min-width: 9rem;
 	padding: var(--spacing-small);
 	border: 1px solid var(--color-foreground);
 	margin-left: auto;
 }
 
 .add-to-cart-button:hover {
-	background-color: var(--color-hover);
+	background-color: var(--color-tertiary);
+	color: var(--color-background);
 }
+
+.add-to-cart-button:active {
+	background-color: var(--color-foreground);
+	color: var(--color-background);
+}
+
+/* DEAL OFFER BADGE */
+.deal-offer-badge {
+	width: 4rem;
+	height: 4rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--color-background);
+	padding: var(--spacing-small);
+	border-radius: 50%;
+	transform: rotate(30deg);
+	background-color: var(--color-tertiary);
+
+	position: absolute;
+	left: -10px;
+	top: -10px;
+}
+
+.deal-offer-badge.hidden {
+	display: none;
+}
+
 /* FOOTER */
 footer {
 	padding: var(--spacing-medium);
 	display: flex;
 	justify-content: center;
+}
+
+
+/* RESPONSIVE FOR MOBILE */
+@media screen and (max-width: 768px) {
+
+
+	main {
+		padding: var(--spacing-small);
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.destinations h2 {
+		font-size: 1.5rem;
+		
+	}
+
+	.destinations__card img {
+		width: 100%;
+	}
+
+	.destinations__card {
+		flex-direction: column;
+		padding: var(--spacing-small);
+	}
 }
