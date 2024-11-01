@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./styles/reset.css" />
+		<link rel="stylesheet" href="./styles/variables.css" />
+		<link rel="stylesheet" href="./styles/style.css" />
+		<title>Reis din vei 👋</title>
+	</head>
+	<body>
+		<header>
+			<img src="./assets/logo/reis.jpg" alt="hero-bilde" />
+			<button>🛒</button>
+			<div class="cart-badge"></div>
+		</header>
+
+		<main>
+			<section class="hero">
+				<h1 class="main-heading">
+					REIS DIN VEI! 👋  <br>
+					 VI TAR DEG TIL SOLEN OG BORT FRA HVERDAGEN!
+					
+				</h1>
+				<img
+					src="./assets/images/hero-image-nils-nedel.jpg"
+					alt="airplane-wing in sunset"
+				/>
+				<p>
+					Hos Reis din vei er vi spesialister på solfylte
+					destinasjoner verden over. Enten du vil slappe av på en
+					karibisk strand, utforske eksotiske markeder i Marrakech,
+					eller ta en siesta på en spansk tapasbar, ordner vi reisen
+					fra A til Å (og alt som skjer etter B!).
+				</p>
+				<p>
+					Vi tilbyr skreddersydde reiser tilpasset både store og små
+					eventyrere, med ett mål for øye: at du kommer hjem med både
+					tanlines og historier.
+				</p>
+				
+			</section>
+
+			<hr class="divider">
+
+			<section class="destinations">
+				<h2>Utforsk våre solfylte reisemål!</h2>
+
+				<div class="sort-buttons">
+					Sorter etter:
+					<button class="sort-button" data-sort="price-high">Pris høy</button>
+					<button class="sort-button active" data-sort="price-low">Pris lav</button>
+					<button class="sort-button" data-sort="continent">Kontinent</button>
+					<button class="sort-button" data-sort="deal-offer">Tilbud</button>					
+				</div>
+
+				<div class="destinations__cards-container">
+					<!-- Destinasjonskortene legges til her -->
+					 <article class="destinations__card">
+						<img src="./assets/images/destinations/christoph-schulz-dubai.jpg" alt="destinasjon-1" />
+						<div class="card__content">
+							<h3>🏝️ Karibien</h3>
+							<p>Utforsk de karibiske øyer med Reis din vei! Vi tilbyr alt fra luksuriøse all-inclusive hotell til bærekraftige øko-resorts.</p>
+							<p>Varighet: 7 dager</p>
+							<p>Pris: 15 000 kr</p>
+						</div>
+						<button class="add-to-cart-button">Add to cart</button>
+					 </article>
+
+					 <article class="destinations__card">
+						<img src="./assets/images/destinations/syd-sujuaan-maldives.jpg" alt="destinasjon-1" />
+						<div class="card__content">
+							<h3>🏝️ Karibien</h3>
+							<p>Utforsk de karibiske øyer med Reis din vei! Vi tilbyr alt fra luksuriøse all-inclusive hotell til bærekraftige øko-resorts.</p>
+							<p>Varighet: 7 dager</p>
+							<p>Pris: 15 000 kr</p>
+						</div>
+						<button class="add-to-cart-button">Add to cart</button>
+					 </article>
+
+					 <article class="destinations__card">
+						<img src="./assets/images/destinations/dan-freeman-sydney.jpg" alt="destinasjon-1" />
+						<div class="card__content">
+							<h3>🏝️ Karibien</h3>
+							<p>Utforsk de karibiske øyer med Reis din vei! Vi tilbyr alt fra luksuriøse all-inclusive hotell til bærekraftige øko-resorts.</p>
+							<p>Varighet: 7 dager</p>
+							<p>Pris: 15 000 kr</p>
+						</div>
+						<button class="add-to-cart-button">Add to cart</button>
+					 </article>
+				</div>
+			</section>
+		</main>
+
+		<footer>2024 &copy; Reis din vei Inc.</footer>
+
+		<script src="./js/app.js"></script>
+	</body>
+</html>
