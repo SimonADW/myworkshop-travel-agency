@@ -16,6 +16,9 @@ header {
 	padding: var(--spacing-medium);
 	display: flex;
 	align-items: center;
+	position: sticky;
+	top: 0;
+	z-index: 2;
 }
 
 header img {
@@ -136,7 +139,7 @@ h1, h2 {
 .destinations__card {
 	display: flex;
 	align-items: center;
-	gap: var(--spacing-small);
+	gap: var(--spacing-medium);
 	padding: var(--spacing-medium);
 	border-radius: 5px;
 	background-color: var(--color-secondary);
@@ -154,7 +157,7 @@ h1, h2 {
 .card__content {	
 	display: flex;
 	flex-direction: column;
-	gap: var(--spacing-medium);
+	gap: var(--spacing-medium);	
 }
 
 .add-to-cart-button {
@@ -198,13 +201,85 @@ h1, h2 {
 	display: none;
 }
 
+/* CART MODAL */
+.cart-dialog {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translateX(-50%) translateY(-50%);
+	width: 80%;
+	height: 70%;
+	background-color: var(--color-background);
+	border-radius: 5px ;		
+}
+
+.cart-dialog::backdrop {
+	background-color: rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(3px);
+}
+
+.cart-dialog__content {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	gap: var(--spacing-large);	
+	padding: var(--spacing-large) 0;	
+}
+
+/* CART-LIST */
+.cart-list {
+	display: flex;
+	flex-direction: column;
+	gap: var(--spacing-medium);
+}
+
+.cart-item {
+	height: 5rem;
+	display: flex;
+	gap: var(--spacing-small);
+	align-items: end;
+}
+
+.cart-item img {
+	width: 5rem;
+	height: 5rem;
+	object-fit: cover;
+}
+
+.cart-dialog__content button {
+	background: transparent;
+	height: 1.5rem;
+	padding: 0 1rem;
+	border: 1px solid var(--color-foreground);	
+}
+
+
+.cart-dialog__content button:hover {
+	background-color: var(--color-tertiary);
+	color: var(--color-background);
+}
+
+.cart-dialog__content button:active {
+	background-color: var(--color-foreground);
+	color: var(--color-background);
+}
+.cart-sum {
+	font-size: 1.3rem;
+}
+
+.cart__button-container {
+	display: flex;
+	gap: var(--spacing-small);
+}
+
 /* FOOTER */
 footer {
 	padding: var(--spacing-medium);
 	display: flex;
 	justify-content: center;
 }
-
 
 /* RESPONSIVE FOR MOBILE */
 @media screen and (max-width: 768px) {

@@ -11,7 +11,7 @@
 	<body>
 		<header>
 			<img src="./assets/logo/reis.jpg" alt="hero-bilde" />
-			<button>
+			<button class="open-cart-modal-button">
 				🛒
 				<div class="cart-badge">0</div>
 			</button>
@@ -29,7 +29,7 @@
 					alt="airplane-wing in sunset"
 				/>
 				<p>
-					Hos Reis din vei er vi spesialister på solfylte
+					Hos Reis din vei er vi spesialister på solfylteq
 					destinasjoner verden over. Enten du vil slappe av på en
 					karibisk strand, utforske eksotiske markeder i Marrakech,
 					eller ta en siesta på en spansk tapasbar, ordner vi reisen
@@ -93,6 +93,20 @@
 					 </article>
 				</div>
 			</section>
+
+			<dialog class="cart-dialog">	
+				<div class="cart-dialog__content">
+					<h2>Din handlekurv</h2>
+					<ul class="cart-list"></ul>
+					<p class="cart-sum">Totalt: <span class="cart-total">0</span> kr</p>
+					<div class="cart__button-container">
+						<button class="close-cart-modal-button">Lukk</button>
+						<button class="clear-cart-button">Tøm handlekurven</button>
+						<button class="checkout-button">Kjøp</button>
+					</div>
+				</div>
+			</dialog>
+
 		</main>
 
 		<footer>2024 &copy; Reis din vei Inc.</footer>

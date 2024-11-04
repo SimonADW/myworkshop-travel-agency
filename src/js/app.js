@@ -86,6 +86,12 @@ const shoppingCartBadge = document.querySelector(".cart-badge");
 const sortButtons = document.querySelectorAll(".sort-button");
 const destinationsCardsContainer = document.querySelector(".destinations__cards-container");
 
+const cartModal = document.querySelector("dialog");
+const openCartModalButton = document.querySelector(".open-cart-modal-button");
+const closeCartModalButton = document.querySelector(".close-cart-modal-button");
+const totalPrice = document.querySelector(".cart-total");
+const clearCartButton = document.querySelector(".clear-cart-button");
+
 // GLOBAL VARIABLES
 let shoppingCart = [];
 let sortedDestinations = destinations;
@@ -175,4 +181,57 @@ sortButtons.forEach((button) => {
 // INITIAL RENDER
 window.addEventListener("DOMContentLoaded", () => {
     renderDestinations(sortedDestinations);
+});
+
+// MODALS ----------------------------
+
+const renderCartContent = () => {
+    if(shoppingCart.length !== 0) {
+        const cartList = document.querySelector(".cart-list");
+        cartList.textContent = "";
+
+        shoppingCart.forEach((destination) => {
+            const cartItem = document.createElement("li");
+            cartItem.classList.add("cart-item");
+
+            const cartItemImage = document.createElement("img");
+            cartItemImage.classList.add("cart-item-image");
+            cartItemImage.src = destination.imageUrl;
+
+            const titlePriceContainer = document.createElement("div");
+            titlePriceContainer.classList.add("cart-title-price-container");
+
+            const title = document.createElement("h4");
+            title.textContent = destination.title;
+
+            const price = document.createElement("p");
+            price.textContent = `${destination.price} kr`;
+
+            titlePriceContainer.append(title, price);
+            cartItem.append(cartItemImage, titlePriceContainer);
+            cartList.appendChild(cartItem);
+        });
+    } else {
+        const cartList = document.querySelector(".cart-list");
+        cartList.textContent = "Handlekurven er tom";
+    }
+
+    const totalPriceAmount = shoppingCart.reduce((acc, destination) => acc + destination.price, 0);    
+    totalPrice.textContent = totalPriceAmount;
+
+}
+
+openCartModalButton.addEventListener("click", () => {
+    renderCartContent();
+    cartModal.showModal();
+})
+
+closeCartModalButton.addEventListener("click", () => {
+    cartModal.close();
+});
+
+clearCartButton.addEventListener("click", () => {
+    shoppingCart = [];
+    shoppingCartBadge.textContent = 0;
+    renderCartContent();
 });
