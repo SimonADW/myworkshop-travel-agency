@@ -94,13 +94,13 @@ const clearCartButton = document.querySelector(".clear-cart-button");
 
 // GLOBAL VARIABLES
 let shoppingCart = [];
-let sortedDestinations = destinations;
+
 
 // RENDER DESTINATIONS
-const renderDestinations = () => {
+const renderDestinations = (destinations) => {
     destinationsCardsContainer.textContent = "";
 
-    sortedDestinations.forEach((destination) => {
+    destinations.forEach((destination) => {
         const card = document.createElement("article");
         card.classList.add("destinations__card");
 
@@ -150,37 +150,45 @@ const renderDestinations = () => {
     });
 };
 
+// SORT DESTINATIONS FUNCTION
+const sortDestinations = (event) => {
+    let sortedDestinations = [...destinations];
+
+    // REMOVE ACTIVE CLASS FROM ALL BUTTONS
+    sortButtons.forEach((button) => {
+        button.classList.remove("active");
+    });
+
+    // SORT DESTINATIONS AND ADD ACTIVE CLASS TO BUTTON
+    const sortType = event.target.dataset.sort;
+    if (sortType === "price-high") {
+        sortedDestinations = sortedDestinations.sort((a, b) => b.price - a.price);
+        event.target.classList.add("active");
+    } else if (sortType === "price-low") {
+        sortedDestinations = sortedDestinations.sort((a, b) => a.price - b.price);
+        event.target.classList.add("active");
+    } else if (sortType === "duration") {
+        sortedDestinations = sortedDestinations.sort((a, b) => a.duration - b.duration);
+        event.target.classList.add("active");
+    } else if (sortType === "deal-offer") {
+        sortedDestinations = sortedDestinations.filter((destination) => destination.dealOffer);
+        event.target.classList.add("active");
+    } else if (sortType === "all") {
+        sortedDestinations = [...destinations];
+        event.target.classList.add("active");
+    }    
+    renderDestinations(sortedDestinations);
+};
+
 // EVENT LISTENERS
 // SWITCH TO SORT DESTINATIONS
 sortButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        // REMOVE ACTIVE CLASS FROM ALL BUTTONS
-        sortButtons.forEach((button) => {
-            button.classList.remove("active");
-        });
-
-        // SORT DESTINATIONS AND ADD ACTIVE CLASS TO BUTTON
-        const sortType = event.target.dataset.sort;
-        if (sortType === "price-high") {
-            sortedDestinations = destinations.sort((a, b) => b.price - a.price);
-            button.classList.add("active");
-        } else if (sortType === "price-low") {
-            sortedDestinations = destinations.sort((a, b) => a.price - b.price);
-            button.classList.add("active");
-        } else if (sortType === "duration") {
-            sortedDestinations = destinations.sort((a, b) => a.duration - b.duration);
-            button.classList.add("active");
-        } else if (sortType === "deal-offer") {
-            sortedDestinations = destinations.filter((destination) => destination.dealOffer);
-            button.classList.add("active");
-        }
-        renderDestinations(sortedDestinations);
-    });
+    button.addEventListener("click", (e)=> sortDestinations(e))
 });
 
 // INITIAL RENDER
 window.addEventListener("DOMContentLoaded", () => {
-    renderDestinations(sortedDestinations);
+    renderDestinations(destinations);
 });
 
 // MODALS ----------------------------
