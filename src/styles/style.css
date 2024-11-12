@@ -197,10 +197,6 @@ h1, h2 {
 	top: -10px;
 }
 
-.deal-offer-badge.hidden {
-	display: none;
-}
-
 /* CART MODAL */
 .cart-dialog {
 	position: fixed;

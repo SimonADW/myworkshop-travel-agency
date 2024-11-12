@@ -131,13 +131,13 @@ const renderDestinations = (destinations) => {
             shoppingCart.push(destination);
             shoppingCartBadge.textContent = shoppingCart.length;
         });
-
+        
         const dealOfferBadge = document.createElement("div");
-        dealOfferBadge.classList.add("deal-offer-badge");
-        dealOfferBadge.textContent = "Tilbud";
 
-        if (!destination.dealOffer) {
-            dealOfferBadge.classList.add("hidden");
+        if (!destination.dealOffer) {            
+            dealOfferBadge.classList.add("deal-offer-badge");
+            dealOfferBadge.textContent = "Tilbud";
+            // dealOfferBadge.classList.add("visible");
         }
 
         // APPENDING ELEMENTS

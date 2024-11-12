@@ -12,7 +12,19 @@
 		<header>
 			<img src="./assets/logo/reis.jpg" alt="hero-bilde" />
 			<button class="open-cart-modal-button">
-				🛒
+				<svg
+					width="24"
+					height="24"
+					viewBox="0 0 24 24"
+					fill="none"
+					xmlns="http://www.w3.org/2000/svg"
+				>
+					<path
+						d="M7 18C5.9 18 5 18.9 5 20C5 21.1 5.9 22 7 22C8.1 22 9 21.1 9 20C9 18.9 8.1 18 7 18ZM1 2V4H3L6.6 11.59L5.25 14.04C5.09 14.32 5 14.65 5 15C5 16.1 5.9 17 7 17H19V15H7.42C7.28 15 7.17 14.89 7.17 14.75L7.2 14.65L8.1 13H15.55C16.3 13 16.96 12.58 17.3 11.97L20.88 5.48C21.05 5.2 21.1 4.86 21 4.54C20.89 4.21 20.63 4 20.28 4H5.21L4.27 2H1ZM17 18C15.9 18 15 18.9 15 20C15 21.1 15.9 22 17 22C18.1 22 19 21.1 19 20C19 18.9 18.1 18 17 18Z"
+						fill="currentColor"
+					/>
+				</svg>
+
 				<div class="cart-badge">0</div>
 			</button>
 		</header>
@@ -20,9 +32,8 @@
 		<main>
 			<section class="hero">
 				<h1 class="main-heading">
-					REIS DIN VEI! 👋  <br>
+					REIS DIN VEI! 👋 <br />
 					Vi tar deg til solen og bort fra hverdagen!
-					
 				</h1>
 				<img
 					src="./assets/images/hero-image-nils-nedel.jpg"
@@ -40,26 +51,33 @@
 					eventyrere, med ett mål for øye: at du kommer hjem med både
 					tanlines og historier.
 				</p>
-				
 			</section>
 
-			<hr class="divider">
+			<hr class="divider" />
 
 			<section class="destinations">
 				<h2>Utforsk våre solfylte reisemål!</h2>
 
 				<div class="sort-buttons">
 					Sorter etter:
-					<button class="sort-button" data-sort="all">Alle</button>					
-					<button class="sort-button" data-sort="price-high">Pris høy</button>
-					<button class="sort-button" data-sort="price-low">Pris lav</button>
-					<button class="sort-button" data-sort="duration">Varighet</button>
-					<button class="sort-button" data-sort="deal-offer">Tilbud</button>					
+					<button class="sort-button" data-sort="all">Alle</button>
+					<button class="sort-button" data-sort="price-high">
+						Pris høy
+					</button>
+					<button class="sort-button" data-sort="price-low">
+						Pris lav
+					</button>
+					<button class="sort-button" data-sort="duration">
+						Varighet
+					</button>
+					<button class="sort-button" data-sort="deal-offer">
+						Tilbud
+					</button>
 				</div>
 
 				<div class="destinations__cards-container">
 					<!-- Destinasjonskortene legges til her -->
-					 <article class="destinations__card">
+					<!-- <article class="destinations__card">
 						<img src="./assets/images/destinations/christoph-schulz-dubai.jpg" alt="destinasjon-1" />
 						<div class="card__content">
 							<h3>🏝️ Karibien</h3>
@@ -69,45 +87,26 @@
 						</div>
 						<button class="add-to-cart-button">Add to cart</button>
 						<div class="deal-offer-badge">Tilbud</div>
-					 </article>
-
-					 <article class="destinations__card">
-						<img src="./assets/images/destinations/syd-sujuaan-maldives.jpg" alt="destinasjon-1" />
-						<div class="card__content">
-							<h3>🏝️ Karibien</h3>
-							<p>Utforsk de karibiske øyer med Reis din vei! Vi tilbyr alt fra luksuriøse all-inclusive hotell til bærekraftige øko-resorts.</p>
-							<p>Varighet: 7 dager</p>
-							<p>Pris: 15 000 kr</p>
-						</div>
-						<button class="add-to-cart-button">Add to cart</button>
-					 </article>
-
-					 <article class="destinations__card">
-						<img src="./assets/images/destinations/dan-freeman-sydney.jpg" alt="destinasjon-1" />
-						<div class="card__content">
-							<h3>🏝️ Karibien</h3>
-							<p>Utforsk de karibiske øyer med Reis din vei! Vi tilbyr alt fra luksuriøse all-inclusive hotell til bærekraftige øko-resorts.</p>
-							<p>Varighet: 7 dager</p>
-							<p>Pris: 15 000 kr</p>
-						</div>
-						<button class="add-to-cart-button">Add to cart</button>
-					 </article>
+					 </article> -->
 				</div>
 			</section>
 
-			<dialog class="cart-dialog">	
+			<dialog class="cart-dialog">
 				<div class="cart-dialog__content">
 					<h2>Din handlekurv</h2>
 					<ul class="cart-list"></ul>
-					<p class="cart-sum">Totalt: <span class="cart-total">0</span> kr</p>
+					<p class="cart-sum">
+						Totalt: <span class="cart-total">0</span> kr
+					</p>
 					<div class="cart__button-container">
 						<button class="close-cart-modal-button">Lukk</button>
-						<button class="clear-cart-button">Tøm handlekurven</button>
+						<button class="clear-cart-button">
+							Tøm handlekurven
+						</button>
 						<button class="checkout-button">Kjøp</button>
 					</div>
 				</div>
 			</dialog>
-
 		</main>
 
 		<footer>2024 &copy; Reis din vei Inc.</footer>
