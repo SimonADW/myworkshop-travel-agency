@@ -148,7 +148,6 @@ h1, h2 {
 
 .destinations__card img {
 	width: 15rem;
-	min-height: 10rem;
 	aspect-ratio: 3/2;
 	object-fit: cover;
 	border-radius: 5px;

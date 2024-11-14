@@ -86,18 +86,24 @@ const shoppingCartBadge = document.querySelector(".cart-badge");
 const sortButtons = document.querySelectorAll(".sort-button");
 const destinationsCardsContainer = document.querySelector(".destinations__cards-container");
 
+// DOM ELEMENTS FOR MODAL
 const cartModal = document.querySelector("dialog");
 const openCartModalButton = document.querySelector(".open-cart-modal-button");
 const closeCartModalButton = document.querySelector(".close-cart-modal-button");
 const totalPrice = document.querySelector(".cart-total");
 const clearCartButton = document.querySelector(".clear-cart-button");
 
+// INITIAL RENDER
+window.addEventListener("DOMContentLoaded", () => {
+    renderDestinations(destinations);
+});
+
 // GLOBAL VARIABLES
-let shoppingCart = [];
+const shoppingCart = [];
 
 
 // RENDER DESTINATIONS
-const renderDestinations = (destinations) => {
+function renderDestinations(destinations) {
     destinationsCardsContainer.textContent = "";
 
     destinations.forEach((destination) => {
@@ -131,22 +137,21 @@ const renderDestinations = (destinations) => {
             shoppingCart.push(destination);
             shoppingCartBadge.textContent = shoppingCart.length;
         });
-        
-        const dealOfferBadge = document.createElement("div");
 
-        if (!destination.dealOffer) {            
+        // DEAL OFFER BADGE        
+        const dealOfferBadge = document.createElement("div");
+        if (destination.dealOffer) {            
             dealOfferBadge.classList.add("deal-offer-badge");
             dealOfferBadge.textContent = "Tilbud";
-            // dealOfferBadge.classList.add("visible");
         }
 
         // APPENDING ELEMENTS
         cardContent.append(title, description, duration, price);
-        card.appendChild(img);
-        card.appendChild(cardContent);
-        card.appendChild(addToCartButton);
-        card.appendChild(dealOfferBadge);
-        destinationsCardsContainer.appendChild(card);
+        card.append(img);
+        card.append(cardContent);
+        card.append(addToCartButton);
+        card.append(dealOfferBadge);
+        destinationsCardsContainer.append(card);
     });
 };
 
@@ -186,12 +191,8 @@ sortButtons.forEach((button) => {
     button.addEventListener("click", (e)=> sortDestinations(e))
 });
 
-// INITIAL RENDER
-window.addEventListener("DOMContentLoaded", () => {
-    renderDestinations(destinations);
-});
 
-// MODALS ----------------------------
+// MODAL ----------------------------
 
 const renderCartContent = () => {
     if(shoppingCart.length !== 0) {
@@ -217,7 +218,7 @@ const renderCartContent = () => {
 
             titlePriceContainer.append(title, price);
             cartItem.append(cartItemImage, titlePriceContainer);
-            cartList.appendChild(cartItem);
+            cartList.append(cartItem);
         });
     } else {
         const cartList = document.querySelector(".cart-list");
@@ -239,7 +240,7 @@ closeCartModalButton.addEventListener("click", () => {
 });
 
 clearCartButton.addEventListener("click", () => {
-    shoppingCart = [];
+    shoppingCart.length = 0;
     shoppingCartBadge.textContent = 0;
     renderCartContent();
 });

@@ -2,14 +2,14 @@
 
 ### Credits
 Photocredits:
-* Alexa-West-Bali.
-* Chloe-Lefleur-Santorini.
-* Maria-Ivanova-Phuket.
-* Alex-Braga-Cancun.
-* Neora-Aylon-Maui.
-* Syd-Sujuaan-Maldives.
-* Enes-Barcelona.
-* Christoph-Schulz-Dubai.
-* Shashank-Kumar-Cape-town.
-* Dan-Freeman-Sydney.
+* Photo from Bali: Alexa-West
+* Photo from Santorini: Chloe-Lefleur
+* Photo from Phuket: Maria-Ivanova
+* Photo from Cancun: Alex-Braga
+* Photo from Maui: Neora-Aylon
+* Photo from Maldives: Syd-Sujuaan
+* Photo from Barcelona: Enes
+* Photo from Dubai: Christoph-Schulz
+* Photo from Cape Town: Shashank-Kumar
+* Photo from Sydney: Dan-Freeman
  
